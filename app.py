@@ -42,25 +42,25 @@ st.title('🧬 Disease Trend Analysis Dashboard')
 data = generate_mock_data()
 
 # --- Trend line chart ---
-st.subheader("📈 Daily Case Trends")
+st.subheader(" Daily Case Trends")
 fig = px.line(data, x='date', y='cases', title='Reported Cases Over Time')
 st.plotly_chart(fig, use_container_width=True)
 
 # --- Prediction chart ---
 predictions = predict_cases(data)
-st.subheader("🔮 Predicted Cases (Next 7 Days)")
+st.subheader("Predicted Cases (Next 7 Days)")
 fig2 = px.line(predictions, x='date', y='predicted_cases', title='Predicted Future Cases')
 st.plotly_chart(fig2, use_container_width=True)
 
 # --- Alert if cases exceed threshold ---
 alert_threshold = 250
 if any(predictions['predicted_cases'] > alert_threshold):
-    st.error("🚨 Alert: Predicted cases exceed threshold! Notify health authorities.")
+    st.error(" Alert: Predicted cases exceed threshold! Notify health authorities.")
 else:
-    st.success("✅ No major outbreak predicted in the next 7 days.")
+    st.success("No major outbreak predicted in the next 7 days.")
 
 # --- Hotspot Map ---
-st.subheader("🗺️ Case Hotspot Map")
+st.subheader("Case Hotspot Map")
 m = folium.Map(location=[25, 80], zoom_start=5)
 marker_cluster = MarkerCluster().add_to(m)
 for idx, row in data.iterrows():
@@ -75,7 +75,7 @@ for idx, row in data.iterrows():
 st_folium(m, width=700, height=450)
 
 # --- Disease & Region Data Summary ---
-st.subheader("🦠 Disease and Region Insights")
+st.subheader("Disease and Region Insights")
 
 # Mock disease + region data
 disease_data = pd.DataFrame({
@@ -85,7 +85,7 @@ disease_data = pd.DataFrame({
 })
 
 # Top diseases table
-st.markdown("### 🧪 Top Diseases")
+st.markdown("### Top Diseases")
 top_diseases = disease_data.groupby('Disease')['Cases'].sum().reset_index().sort_values(by='Cases', ascending=False)
 st.dataframe(top_diseases)
 
@@ -94,7 +94,7 @@ fig3 = px.bar(top_diseases, x='Disease', y='Cases', title='Top Diseases by Case 
 st.plotly_chart(fig3, use_container_width=True)
 
 # Most affected regions table
-st.markdown("### 🌍 Most Affected Regions")
+st.markdown("### Most Affected Regions")
 top_regions = disease_data.groupby('Region')['Cases'].sum().reset_index().sort_values(by='Cases', ascending=False)
 st.dataframe(top_regions)
 
