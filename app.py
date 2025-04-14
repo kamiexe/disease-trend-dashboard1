@@ -7,16 +7,6 @@ from folium.plugins import MarkerCluster
 from streamlit_folium import st_folium
 from sklearn.linear_model import LinearRegression
 
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: #f0f2f6; /* Light gray background, change as needed */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 # --- Generate mock outbreak data ---
 def generate_mock_data():
