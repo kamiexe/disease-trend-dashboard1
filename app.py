@@ -36,7 +36,7 @@ def predict_cases(data):
 
 # --- Streamlit page setup ---
 st.set_page_config(layout="wide")
-st.title('🧬 Disease Trend Analysis Dashboard')
+st.title('Disease Trend Analysis Dashboard')
 
 # --- Load mock time-series data ---
 data = generate_mock_data()
