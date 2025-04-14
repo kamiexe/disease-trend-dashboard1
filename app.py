@@ -39,16 +39,7 @@ def predict_cases(data):
 st.set_page_config(layout="wide")
 st.title('Disease Trend Analysis Dashboard')
 st.set_page_config(layout="wide")
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: #f0f2f6;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
 
 # --- Load mock time-series data ---
 data = generate_mock_data()
